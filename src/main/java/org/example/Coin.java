@@ -14,74 +14,96 @@ public class Coin {
 
         int face = coinFace.nextInt(2);
 
-        System.out.println("Time to flip");
+        System.out.println("Then it's time to flip.");
         Thread.sleep(800);
-        System.out.println("Heads");
-        Thread.sleep(400);
-        System.out.println("Tails");
-        Thread.sleep(400);
-        System.out.println("Heads");
-        Thread.sleep(400);
-        System.out.println("Tails");
-        Thread.sleep(400);
-        System.out.println("Heads");
-        Thread.sleep(400);
-        System.out.println("Tails");
-        Thread.sleep(400);
-        System.out.println("Heads");
-        Thread.sleep(400);
-        System.out.println("Tails");
-        Thread.sleep(400);
-        System.out.println("Heads");
-        Thread.sleep(400);
-        System.out.println("Tails");
-        Thread.sleep(400);
-        System.out.println("Heads");
 
+        System.out.println("");
+        System.out.println("Call it.");
+        System.out.println("");
+        Thread.sleep(1000);
 
+        coinInAir();
 
-
-
-
-//        Thread.sleep(4000);
-//        System.out.println("2");
-//        Thread.sleep(4000);
-//        System.out.println("1");
-//        Thread.sleep(4000);
-
+        System.out.println("");
         if (face == 0) {
-            System.out.println("Heads");
+            System.out.println("It's Heads");
         }
         else {
-            System.out.println("Tails");
+            System.out.println("It's Tails");
         }
 
         return face;
     }
 
     public static int coinChosen (int inputAnswer) throws InterruptedException {
-        System.out.println("We'll use a coin");
+
 
         Thread.sleep(800);
 
         System.out.println("");
-        System.out.println("Do you want to choose the side of the coin? Y / N");
+        System.out.println("Do you want to choose before you flip? Y / N");
+        System.out.println("");
         String answer = input.nextLine().toUpperCase();
 
         if (answer.contains("Y")) {
             System.out.println("Make your choice.");
 
-            Thread.sleep(800);
+            Thread.sleep(500);
 
             System.out.println("");
             System.out.println("[H]eads");
             System.out.println("[T]ails");
 
+            String coinChoice = input.nextLine();
 
+            if (coinChoice.equals("h")) {
+                System.out.println("Your choice: Heads");
+            }
+            else if (coinChoice.equals("h")) {
+                System.out.println("Your choice: Heads");
+            }
+            System.out.println("");
+            Thread.sleep(1000);
+            System.out.println("Time to flip.");
+            System.out.println("");
+
+            coinInAir();
+
+            Random coinFace = new Random();
+
+            int face = coinFace.nextInt(2);
+
+            if (face == 0) {
+                System.out.println("It's Heads");
+            }
+            else {
+                System.out.println("It's Tails");
+            }
         }
         else {
             Coin.coinFace();
         }
         return inputAnswer;
+    }
+
+    public static void coinInAir() throws InterruptedException {
+        for (int i = 0; i < 4; i++) {
+            System.out.println("Heads");
+            Thread.sleep(400);
+            System.out.println("Tails");
+            Thread.sleep(400);
+        }
+
+        System.out.println("");
+        System.out.println("");
+    }
+
+    public static String bestOutOf (int round) {
+
+        int bets = round + 1;
+        int wins = (bets * 2) - 1;
+
+        String betSeries = bets + " out of " + wins;
+        return betSeries;
     }
 }
