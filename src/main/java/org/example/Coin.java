@@ -11,12 +11,10 @@ public class Coin {
     public static int coinFace() throws InterruptedException {
 
         Random coinFace = new Random();
-
         int face = coinFace.nextInt(2);
 
         System.out.println("Then it's time to flip.");
         Thread.sleep(800);
-
         System.out.println("");
         System.out.println("Call it.");
         System.out.println("");
@@ -31,25 +29,16 @@ public class Coin {
         else {
             System.out.println("It's Tails");
         }
-
         return face;
     }
 
     public static int coinChosen (int inputAnswer) throws InterruptedException {
 
-
-        Thread.sleep(800);
-
-        System.out.println("");
-        System.out.println("Do you want to choose before you flip? Y / N");
-        System.out.println("");
         String answer = input.nextLine().toUpperCase();
 
         if (answer.contains("Y")) {
             System.out.println("Make your choice.");
-
             Thread.sleep(500);
-
             System.out.println("");
             System.out.println("[H]eads");
             System.out.println("[T]ails");
@@ -70,7 +59,6 @@ public class Coin {
             coinInAir();
 
             Random coinFace = new Random();
-
             int face = coinFace.nextInt(2);
 
             if (face == 0) {
@@ -93,17 +81,5 @@ public class Coin {
             System.out.println("Tails");
             Thread.sleep(400);
         }
-
-        System.out.println("");
-        System.out.println("");
-    }
-
-    public static String bestOutOf (int round) {
-
-        int bets = round + 1;
-        int wins = (bets * 2) - 1;
-
-        String betSeries = bets + " out of " + wins;
-        return betSeries;
     }
 }

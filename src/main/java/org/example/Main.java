@@ -1,12 +1,16 @@
 package org.example;
 
+import org.example.Die.D4;
+import org.example.Die.D6;
+
 import java.util.Random;
 import java.util.Scanner;
 
-import static org.example.Coin.bestOutOf;
+
+//ask if they way to choose a side after askinhg how many sides are required so you dont have to keep answering if you want to or not.
 
 
-//change the choices to the first letter. The numbers are confusing you.
+import static org.example.souts.Dialogue.bestOutOf;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
@@ -15,35 +19,36 @@ public class Main {
         int round = 1;
 
         System.out.println("How many sides are required?");
-        String answer = input.nextLine();
-        int inputAnswer = Integer.parseInt(answer);
+        int inputAnswer = Integer.parseInt(input.nextLine());
+
+        String verb = (inputAnswer == 2) ? "flip" : "roll";
+        System.out.println("Do you want to choose a side before you " + verb + "? Y / N");
+        String choiceAnswer = input.nextLine();
+
 
         while (true) {
-            if (inputAnswer == 2) {
-                Coin.coinChosen(inputAnswer);
-            }
-            else if (inputAnswer == 6) {
+           switch(inputAnswer) {
+               case 2: Coin.coinChosen(inputAnswer);
+                break;
+               case 4: D4.choiceRoll();
+           }
 
+            if(choiceAnswer.equalsIgnoreCase("y") && inputAnswer == 6) {
+                D6.yesChosenD6();
             }
 
+            D6.chosenD6();
+
+            Thread.sleep(700);
             System.out.println("Best " + bestOutOf(round) + "? (Y/N)");
             String nextRound = input.nextLine();
 
-
-            if (nextRound.equalsIgnoreCase("N")){
+            if (nextRound.equalsIgnoreCase("N")) {
                 System.out.println("Maybe next time");
                 break;
+            } else {
+                round++;
             }
-
-            System.out.println(bestOutOf(round));
-            round++;
         }
-
-
-
-
-
-//        else if (inputAnswer == 6)
     }
 }
-
