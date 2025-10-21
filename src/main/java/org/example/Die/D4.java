@@ -23,6 +23,7 @@ public class D4 {
         }
 
         System.out.println("");
+        dieRoll();
     }
 
     public static void dieRoll() throws InterruptedException {

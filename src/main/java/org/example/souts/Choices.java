@@ -2,13 +2,7 @@ package org.example.souts;
 
 public class Choices {
 
-    public static void makeYourChoice() throws InterruptedException {
-        System.out.println("Make your choice.");
-        Thread.sleep(500);
-    }
-
     public static void sidesChoiceD4() throws InterruptedException {
-        makeYourChoice();
         System.out.println("[1]");
         System.out.println("[2]");
         System.out.println("[3]");
