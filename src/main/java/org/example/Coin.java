@@ -8,17 +8,14 @@ public class Coin {
 
     static Scanner input = new Scanner(System.in);
 
-    public static int coinFace() throws InterruptedException {
+    public static int coinFlip() throws InterruptedException {
 
         Random coinFace = new Random();
         int face = coinFace.nextInt(2);
 
         System.out.println("Then it's time to flip.");
+        System.out.println("");
         Thread.sleep(800);
-        System.out.println("");
-        System.out.println("Call it.");
-        System.out.println("");
-        Thread.sleep(1000);
 
         coinInAir();
 
@@ -69,7 +66,7 @@ public class Coin {
             }
         }
         else {
-            Coin.coinFace();
+            Coin.coinFlip();
         }
         return inputAnswer;
     }

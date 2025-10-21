@@ -9,14 +9,9 @@ public class D6 {
     static Scanner input = new Scanner(System.in);
     static Random die = new Random();
 
-    public static void yesChosenD6() throws InterruptedException {
+    public static void answerYes() throws InterruptedException {
         System.out.println("Choose between: ");
-        System.out.println("[1]");
-        System.out.println("[2]");
-        System.out.println("[3]");
-        System.out.println("[4]");
-        System.out.println("[5]");
-        System.out.println("[6]");
+        Choices.sidesChoiceD6();
 
         String sideChoice = input.nextLine();
 
@@ -30,9 +25,9 @@ public class D6 {
         System.out.println("");
     }
 
-    public static void chosenD6() throws InterruptedException {
+    public static void dieRoll() throws InterruptedException {
 
-        Choices.timeToRoll();
+//        Choices.timeToRoll();
 
         int roll = die.nextInt(6) + 1;
         System.out.println("It's " + roll);

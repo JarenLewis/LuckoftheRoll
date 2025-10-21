@@ -52,7 +52,7 @@ public class Choices {
     }
 
     public static void timeToRoll() throws InterruptedException {
-        System.out.println("Roll the die.");
+//        System.out.println("Roll the die.");
         Thread.sleep(800);
         System.out.println("");
         Thread.sleep(1000);
