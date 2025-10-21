@@ -20,17 +20,18 @@ public class D12 {
 
     public static void answerYes() throws InterruptedException {
         System.out.println("Choose between: ");
-        Choices.sidesChoiceD6();
+        Choices.sidesChoiceD12();
 
         String sideChoice = input.nextLine();
+        int choice = Integer.parseInt(sideChoice);
 
-        if (sideChoice.matches("[1-12]")) {
+        if(choice > 1 && choice <= 12) {
             System.out.println("Your choice: " + sideChoice);
-        } else {
+        }
+        else {
             System.out.println("I'll get to you dont you worry");
         }
 
-        System.out.println("");
         dieRoll();
     }
 }

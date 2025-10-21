@@ -11,7 +11,7 @@ public class D8 {
 
     public static void dieRoll() throws InterruptedException {
 
-//        Choices.timeToRoll();
+        Choices.timeToRoll();
 
         int roll = die.nextInt(8) + 1;
         System.out.println("It's " + roll);
@@ -19,7 +19,7 @@ public class D8 {
 
     public static void answerYes() throws InterruptedException {
         System.out.println("Choose between: ");
-        Choices.sidesChoiceD6();
+        Choices.sidesChoiceD8();
 
         String sideChoice = input.nextLine();
 
@@ -30,7 +30,6 @@ public class D8 {
             System.out.println("I'll get to you dont you worry");
         }
 
-        System.out.println("");
         dieRoll();
     }
 }

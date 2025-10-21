@@ -11,7 +11,7 @@ public class D20 {
 
     public static void dieRoll() throws InterruptedException {
 
-//        Choices.timeToRoll();
+        Choices.timeToRoll();
 
         int roll = die.nextInt(20) + 1;
         System.out.println("It's " + roll);
@@ -19,18 +19,18 @@ public class D20 {
 
     public static void answerYes() throws InterruptedException {
         System.out.println("Choose between: ");
-        Choices.sidesChoiceD6();
+        Choices.sidesChoiceD20();
 
         String sideChoice = input.nextLine();
+        int choice = Integer.parseInt(sideChoice);
 
-        if(sideChoice.matches("[1-20]")) {
+        if(choice > 1 && choice <= 20) {
             System.out.println("Your choice: " + sideChoice);
         }
         else {
             System.out.println("I'll get to you dont you worry");
         }
 
-        System.out.println("");
         dieRoll();
     }
 }

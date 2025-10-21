@@ -22,13 +22,12 @@ public class D4 {
             System.out.println("I'll get to you dont you worry");
         }
 
-        System.out.println("");
         dieRoll();
     }
 
     public static void dieRoll() throws InterruptedException {
 
-//        Choices.timeToRoll();
+        Choices.timeToRoll();
 
         int roll = die.nextInt(4) + 1;
         System.out.println("It's " + roll);

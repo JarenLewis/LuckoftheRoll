@@ -34,7 +34,7 @@ public class Choices {
     }
 
     public static void sidesChoiceD20() throws InterruptedException {
-        sidesChoiceD20();
+        sidesChoiceD12();
         System.out.println("[13]");
         System.out.println("[14]");
         System.out.println("[15]");
@@ -63,9 +63,4 @@ public class Choices {
         String betSeries = bets + " out of " + wins;
         return betSeries;
     }
-
-    public static void prints(String sideChoice) {
-
-    }
-
 }
