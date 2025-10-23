@@ -11,30 +11,70 @@ public class Choices {
 
     public static void sidesChoiceD6() throws InterruptedException {
         sidesChoiceD4();
+//      System.out.println("[1]");
+//      System.out.println("[2]");
+//      System.out.println("[3]");
+//      System.out.println("[4]");
         System.out.println("[5]");
         System.out.println("[6]");
     }
 
     public static void sidesChoiceD8() throws InterruptedException {
         sidesChoiceD6();
+//      System.out.println("[1]");
+//      System.out.println("[2]");
+//      System.out.println("[3]");
+//      System.out.println("[4]");
+        System.out.println("[5]");
+        System.out.println("[6]");
         System.out.println("[7]");
         System.out.println("[8]");
     }
 
     public static void sidesChoiceD10() throws InterruptedException {
         sidesChoiceD8();
+//      System.out.println("[1]");
+//      System.out.println("[2]");
+//      System.out.println("[3]");
+//      System.out.println("[4]");
+//      System.out.println("[5]");
+//      System.out.println("[6]");
+//      System.out.println("[7]");
+//      System.out.println("[8]");
         System.out.println("[9]");
         System.out.println("[10]");
     }
 
     public static void sidesChoiceD12() throws InterruptedException {
         sidesChoiceD10();
+//      System.out.println("[1]");
+//      System.out.println("[2]");
+//      System.out.println("[3]");
+//      System.out.println("[4]");
+//      System.out.println("[5]");
+//      System.out.println("[6]");
+//      System.out.println("[7]");
+//      System.out.println("[8]");
+//      System.out.println("[9]");
+//      System.out.println("[10]");
         System.out.println("[11]");
         System.out.println("[12]");
     }
 
     public static void sidesChoiceD20() throws InterruptedException {
         sidesChoiceD12();
+//      System.out.println("[1]");
+//      System.out.println("[2]");
+//      System.out.println("[3]");
+//      System.out.println("[4]");
+//      System.out.println("[5]");
+//      System.out.println("[6]");
+//      System.out.println("[7]");
+//      System.out.println("[8]");
+//      System.out.println("[9]");
+//      System.out.println("[10]");
+//      System.out.println("[11]");
+//      System.out.println("[12]");
         System.out.println("[13]");
         System.out.println("[14]");
         System.out.println("[15]");
