@@ -3,10 +3,19 @@ package org.example.souts;
 public class Choices {
 
     public static void sidesChoiceD4() throws InterruptedException {
-        System.out.println("[1]");
-        System.out.println("[2]");
-        System.out.println("[3]");
-        System.out.println("[4]");
+
+        int[] numberRoll = {1, 2, 3, 4};
+
+
+//        System.out.println("[1]");
+//        System.out.println("[2]");
+//        System.out.println("[3]");
+//        System.out.println("[4]");
+
+        for(int i = 0; i < numberRoll.length; i++) {
+            System.out.println(i + 1);
+        }
+
     }
 
     public static void sidesChoiceD6() throws InterruptedException {
