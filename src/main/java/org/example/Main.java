@@ -3,8 +3,10 @@ package org.example;
 import java.util.Random;
 import java.util.Scanner;
 
+//Add While for how many sides input
+
 public class Main {
-    static void main(String[] args) {
+    public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
         Random die = new Random();
@@ -24,45 +26,35 @@ public class Main {
                 String choiceAnswer = input.nextLine().trim();
 
                 if (numberOfSides != 2) {
-                    if (choiceAnswer.equalsIgnoreCase("n")) {
-                        int roll = die.nextInt(numberOfSides) + 1;
-                        System.out.println("It's " + roll);
-                    }
                     if (choiceAnswer.equalsIgnoreCase("y")) {
-                        System.out.println("Choose a number between 1 and " + numberOfSides + ".");
-                        int chosenNumber = Integer.parseInt(input.nextLine().trim());
+                        int chosenNumber;
+                        while (true) {
+                            System.out.println("Choose a number between 1 and " + numberOfSides + ":");
+                            chosenNumber = Integer.parseInt(input.nextLine().trim());
+                            if (chosenNumber >= 1 && chosenNumber <= numberOfSides) break;
+
+                        }
                         System.out.println("Your choice: " + chosenNumber);
-                        int roll = die.nextInt(numberOfSides) + 1;
-                        System.out.println("It's " + roll);
                     }
+
+                    int roll = die.nextInt(numberOfSides) + 1;
+                    System.out.println("It's " + roll);
                 }
                 if (numberOfSides == 2) {
-                    if (choiceAnswer.equalsIgnoreCase("n")) {
-                        int flip = die.nextInt(numberOfSides);
-
-                        if (flip == 0) {
-                            System.out.println("It's Heads");
-                        } else {
-                            System.out.println("It's Tails");
-                        }
-                    }
                     if (choiceAnswer.equalsIgnoreCase("y")) {
-                        System.out.println("Choose between [H]eads or [T]ails.");
-                        String chosenFace = input.nextLine().trim();
+                        while (true) {
+                            System.out.println("Choose between [H]eads or [T]ails.");
+                            String chosenFace = input.nextLine().trim();
 
-                        if (chosenFace.equalsIgnoreCase("h")) {
-                            System.out.println("Your choice: Heads");
-                        } else if (chosenFace.equalsIgnoreCase("t")) {
-                            System.out.println("Your choice: Tails");
+                            if (chosenFace.equalsIgnoreCase("h")) {
+                                System.out.println("Your choice: Heads");
+                                break;
+                            } else if (chosenFace.equalsIgnoreCase("t")) {
+                                System.out.println("Your choice: Tails");
+                                break;
+                            }
                         }
-
-                        int flip = die.nextInt(numberOfSides);
-
-                        if (flip == 0) {
-                            System.out.println("It's Heads");
-                        } else {
-                            System.out.println("It's Tails");
-                        }
+                        System.out.println("It's " + (die.nextInt(2) == 0 ? "Heads" : "Tails"));
                     }
                 }
                 while (true) {
