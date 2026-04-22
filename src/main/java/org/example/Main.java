@@ -1,73 +1,85 @@
 package org.example;
 
-import org.example.Die.*;
-import org.example.souts.Choices;
-
 import java.util.Random;
 import java.util.Scanner;
 
-
-import static org.example.souts.Choices.bestOutOf;
-
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    static void main(String[] args) {
 
-            Scanner input = new Scanner(System.in);
-            int round = 1;
+        Scanner input = new Scanner(System.in);
+        Random die = new Random();
 
         while (true) {
-            System.out.println("How many sides are required?");
-            int inputAnswer = Integer.parseInt(input.nextLine());
+            while (true) {
+                System.out.println("How many sides are required?");
+                int numberOfSides = Integer.parseInt(input.nextLine().trim());
 
-            String verb = (inputAnswer == 2) ? "flip" : "roll";
-            System.out.println("Do you want to choose a side before you " + verb + "? Y / N");
-            String choiceAnswer = input.nextLine();
-
-            if (choiceAnswer.equalsIgnoreCase("n")) {
-
-                if (inputAnswer == 2) {
-                    Coin.coinFlip();
-                } else if (inputAnswer == 4) {
-                    D4.dieRoll();
-                } else if (inputAnswer == 6) {
-                    D6.dieRoll();
-                } else if (inputAnswer == 8) {
-                    D8.dieRoll();
-                } else if (inputAnswer == 10) {
-                    D10.dieRoll();
-                } else if (inputAnswer == 12) {
-                    D12.dieRoll();
-                } else if (inputAnswer == 20) {
-                    D20.dieRoll();
+                if (numberOfSides < 2) {
+                    System.out.println("Choose 2 or more sides.");
+                    continue;
                 }
-            } else if (choiceAnswer.equalsIgnoreCase("y")) {
-                if (inputAnswer == 2) {
-                    Coin.answerYes();
-                } else if (inputAnswer == 4) {
-                    D4.answerYes();
-                } else if (inputAnswer == 6) {
-                    D6.answerYes();
-                } else if (inputAnswer == 8) {
-                    D8.answerYes();
-                } else if (inputAnswer == 10) {
-                    D10.answerYes();
-                } else if (inputAnswer == 12) {
-                    D12.answerYes();
-                } else if (inputAnswer == 20) {
-                    D20.answerYes();
+
+                String yesOrNo = (numberOfSides == 2) ? "flip" : "roll";
+                System.out.println("Do you want to choose a side before you " + yesOrNo + "? Y / N");
+                String choiceAnswer = input.nextLine().trim();
+
+                if (numberOfSides != 2) {
+                    if (choiceAnswer.equalsIgnoreCase("n")) {
+                        int roll = die.nextInt(numberOfSides) + 1;
+                        System.out.println("It's " + roll);
+                    }
+                    if (choiceAnswer.equalsIgnoreCase("y")) {
+                        System.out.println("Choose a number between 1 and " + numberOfSides + ".");
+                        int chosenNumber = Integer.parseInt(input.nextLine().trim());
+                        System.out.println("Your choice: " + chosenNumber);
+                        int roll = die.nextInt(numberOfSides) + 1;
+                        System.out.println("It's " + roll);
+                    }
                 }
-            }
+                if (numberOfSides == 2) {
+                    if (choiceAnswer.equalsIgnoreCase("n")) {
+                        int flip = die.nextInt(numberOfSides);
 
-            Thread.sleep(700);
-            System.out.println("Best " + Choices.bestOutOf(round) + "? (Y/N)");
+                        if (flip == 0) {
+                            System.out.println("It's Heads");
+                        } else {
+                            System.out.println("It's Tails");
+                        }
+                    }
+                    if (choiceAnswer.equalsIgnoreCase("y")) {
+                        System.out.println("Choose between [H]eads or [T]ails.");
+                        String chosenFace = input.nextLine().trim();
 
-            String nextRound = input.nextLine();
+                        if (chosenFace.equalsIgnoreCase("h")) {
+                            System.out.println("Your choice: Heads");
+                        } else if (chosenFace.equalsIgnoreCase("t")) {
+                            System.out.println("Your choice: Tails");
+                        }
 
-            if (nextRound.equalsIgnoreCase("N")) {
-                System.out.println("Maybe next time");
-                break;
-            } else {
-                round++;
+                        int flip = die.nextInt(numberOfSides);
+
+                        if (flip == 0) {
+                            System.out.println("It's Heads");
+                        } else {
+                            System.out.println("It's Tails");
+                        }
+                    }
+                }
+                while (true) {
+                    System.out.println();
+                    System.out.println("Go again? Y/N");
+                    String goAgain = input.nextLine().trim();
+
+                    if (goAgain.equalsIgnoreCase("y")) {
+                        break;
+                    }
+                    if (goAgain.equalsIgnoreCase("n")) {
+                        System.out.println("Maybe next time");
+                        return;
+                    } else if (!goAgain.equalsIgnoreCase("y")) {
+                        System.out.println("Choose between either Y or N.");
+                    }
+                }
             }
         }
     }
